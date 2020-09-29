@@ -17,7 +17,7 @@ def download_yt_video(video_url):
     }
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         meta = ydl.extract_info(video_url, download = False)
-        video_file_url = meta['requested_formats'][0]['url']
+        video_file_url = meta['formats'][-1]['url']
         return video_file_url
 
 for yt_channel_id in channel_ids_list:
