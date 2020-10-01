@@ -13,7 +13,8 @@ channel_ids_list = [x.replace('https://www.youtube.com/channel/', '') for x in c
 
 def download_yt_video(video_url):
     ydl_opts = {
-        'ignoreerrors': True
+        'ignoreerrors': True,
+        'cookiefile': 'cookies.txt'
     }
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         meta = ydl.extract_info(video_url, download = False)
